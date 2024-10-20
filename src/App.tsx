@@ -1,19 +1,19 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import "/node_modules/flag-icons/css/flag-icons.min.css";
-import { findFlagUrlByNationality } from "country-flags-svg";
 import Navbar from './components/navbar/menu'
-
-const Brazil = findFlagUrlByNationality("Brazilian")
+import Introducao from './components/introducao/introducao'
+import { Grid } from '@mui/joy';
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <Navbar />
-    </>
+    <Grid container>
+      <Grid xs={12}>
+        <Navbar />
+      </Grid>
+      <Grid xs={12}>
+        <Introducao />
+      </Grid>
+    </Grid>
   )
 }
 

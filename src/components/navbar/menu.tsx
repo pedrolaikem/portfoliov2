@@ -1,9 +1,9 @@
 import { Grid, Box, Button, Typography, Select, Option } from '@mui/joy';
-import MenuIcon from '../img/union.jpeg';
-import ArrowDropDownIcon from '../img/arrow_dropdown_icon.png';
+import MenuIcon from './img/union.jpeg';
+import ArrowDropDownIcon from './img/arrow_dropdown_icon.png';
 import { useTranslation, Trans } from 'react-i18next';
 import { findFlagUrlByNationality } from "country-flags-svg";
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
 
 const flagUrl = findFlagUrlByNationality("Brazilian");
@@ -34,19 +34,14 @@ function Menu() {
     };
 
     return (
-        <Box
+        <Grid
             sx={{
                 bgcolor: 'black',
                 width: '100%',
-                position: 'fixed',
-                top: 0,
-                left: 0,
-                right: 0,
-                zIndex: 999,
             }}
         >
             {/* Navbar */}
-            <Grid container alignItems="center" justifyContent="space-between" sx={{ height: '60px', px: 2 }}>
+            <Grid container alignItems="center" justifyContent="space-between" sx={{ height: '60px', px: 4 }}>
                 <Grid>
                     <Typography component="a" href="/" sx={{ color: 'white', fontSize: '1.25rem', fontWeight: 'bold' }}>
                         Pedro.dev
@@ -124,7 +119,7 @@ function Menu() {
                 )
             }
 
-        </Box>
+        </Grid>
     );
 }
 
