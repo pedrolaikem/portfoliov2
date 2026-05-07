@@ -55,11 +55,14 @@ function Menu() {
                             variant="outlined"
                             indicator={<KeyboardArrowDown sx={{color: 'black'}} />}
                             sx={{ bgcolor: 'white', mr: 2, minWidth: '200px' }}
-                            defaultValue={i18n.language?.startsWith('pt') ? 'pt' : 'en'}
+                            value={i18n.language?.startsWith('pt') ? 'pt' : 'en'}
+                            onChange={(_, value) => {
+                                if (value) i18n.changeLanguage(value);
+                            }}
                             renderValue={renderValue}
                         >
                             {Object.keys(lngs).map((lng) => (
-                                <Option key={lng} value={lng} onClick={() => i18n.changeLanguage(lng)}>
+                                <Option key={lng} value={lng}>
                                     <img src={lngs[lng].img} alt={lng} style={{ width: '20px', height: '20px', marginRight: '5px' }} />
                                     {lngs[lng].nativeName}
                                 </Option>

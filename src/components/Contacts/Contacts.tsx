@@ -7,7 +7,7 @@ import { FaLinkedin, FaGithub } from 'react-icons/fa';
 import Emails from './imgs/emails-bro.svg';
 import Emails2 from './imgs/emails-bro2.svg';
 
-const EMAIL = 'contato@pedrohal.dev';
+const EMAIL = 'pedrohaldev@gmail.com';
 
 const bounce = keyframes`
   0%, 100% { transform: translateY(0); }
