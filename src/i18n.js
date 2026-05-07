@@ -36,7 +36,7 @@ i18n
             projectsSubtitle: 'Production work and technical challenges.',
 
             chessmateTitle: 'ChessMate',
-            chessmateDesc: 'Live chess assistant that suggests the best move from any board position. Real-time chat between players, board state engine integration, and a clean React frontend. Built end-to-end and deployed to production.',
+            chessmateDesc: 'Live chess assistant powered by an engine that suggests the best move from any board position and identifies the opening being played, all through a real-time chat with the engine. Built end-to-end with a clean React frontend and deployed to production.',
             chessmateStack: 'React · TypeScript · Node.js · WebSockets',
 
             ayumiTitle: 'Ayumi Dentista — Landing Page',
@@ -79,7 +79,7 @@ i18n
             projectsSubtitle: 'Trabalhos em produção e desafios técnicos.',
 
             chessmateTitle: 'ChessMate',
-            chessmateDesc: 'Assistente de xadrez em produção que sugere o melhor lance a partir de qualquer posição do tabuleiro. Chat em tempo real entre jogadores, integração com engine de avaliação e frontend React limpo. Construído de ponta a ponta.',
+            chessmateDesc: 'Assistente de xadrez em produção, integrado a uma engine que sugere o melhor lance a partir de qualquer posição e identifica o nome da abertura sendo jogada, tudo via chat em tempo real com a engine. Construído de ponta a ponta com frontend React limpo e deploy em produção.',
             chessmateStack: 'React · TypeScript · Node.js · WebSockets',
 
             ayumiTitle: 'Ayumi Dentista — Landing Page',
