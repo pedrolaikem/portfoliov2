@@ -39,6 +39,10 @@ function Menu() {
             sx={{
                 bgcolor: 'black',
                 width: '100%',
+                position: 'sticky',
+                top: 0,
+                zIndex: 1100,
+                boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
             }}
         >
             {/* Navbar */}
