@@ -1,5 +1,5 @@
 import fotoCurriculo from './imgs/foto-terno.jpg';
-import { Trans } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { Box, IconButton, Link } from '@mui/joy';
 import { FaGithub, FaLinkedin, FaReact, FaNodeJs, FaPhp } from 'react-icons/fa';
 import { SiTypescript, SiMysql, SiTailwindcss, SiJavascript } from 'react-icons/si';
@@ -15,6 +15,7 @@ const techs = [
 ];
 
 function Introducao() {
+    const { t } = useTranslation();
     return (
         <Box id="home" className="w-full min-h-[80vh] flex items-center justify-center px-6 py-12">
             <div className="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -22,7 +23,7 @@ function Introducao() {
                 {/* Text */}
                 <div className="flex flex-col gap-6 order-2 lg:order-1">
                     <h1 className="font-inter font-extrabold text-4xl md:text-5xl lg:text-6xl leading-tight">
-                        <Trans i18nKey="description.role">Full-Stack Developer</Trans>
+                        {t('description.role')}
                         <span className="inline-flex gap-2 ml-3 align-middle">
                             <IconButton component={Link} href="https://www.linkedin.com/in/pedro-alveslima" target="_blank" rel="noopener" size="sm">
                                 <FaLinkedin size={28} className="hover:text-blue-600 transition-colors" />
@@ -34,12 +35,12 @@ function Introducao() {
                     </h1>
 
                     <p className="text-gray-600 text-base md:text-lg leading-relaxed max-w-xl">
-                        <Trans i18nKey="description.tagline" />
+                        {t('description.tagline')}
                     </p>
 
                     <div className="flex flex-col gap-3">
                         <span className="font-inter font-bold text-sm uppercase tracking-wide text-gray-500">
-                            <Trans i18nKey="description.techs">Stack</Trans>
+                            {t('description.techs')}
                         </span>
                         <div className="flex flex-wrap gap-3 items-center">
                             {techs.map(({ name, Icon, color }) => (
