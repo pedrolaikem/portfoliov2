@@ -1,19 +1,26 @@
-import { useState } from 'react'
 import './App.css'
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 import Navbar from './components/navbar/menu'
 import Introducao from './components/introducao/introducao'
-import { Grid } from '@mui/joy';
+import About from './components/About/About'
+import Projects from './components/Projects/Projects'
+import Contacts from './components/Contacts/Contacts'
+import { Trans } from 'react-i18next'
+
 function App() {
   return (
-    <Grid container>
-      <Grid xs={12}>
-        <Navbar />
-      </Grid>
-      <Grid xs={12}>
+    <div className="flex flex-col min-h-screen">
+      <Navbar />
+      <main className="flex-1">
         <Introducao />
-      </Grid>
-    </Grid>
+        <About />
+        <Projects />
+        <Contacts />
+      </main>
+      <footer className="bg-black text-white text-center font-inter font-semibold py-6 text-sm md:text-base">
+        <Trans i18nKey="description.footer">© 2026 Pedro Henrique Alves Lima. All rights reserved.</Trans>
+      </footer>
+    </div>
   )
 }
 

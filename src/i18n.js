@@ -1,79 +1,107 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
-
-
-//Here is where the translations are!
-
+import LanguageDetector from 'i18next-browser-languagedetector';
 
 i18n
-  // detect user language
-
-  // pass the i18n instance to react-i18next.
+  .use(LanguageDetector)
   .use(initReactI18next)
-  // init i18next
-  // for all options read: https://www.i18next.com/overview/configuration-options
   .init({
-    debug: true,
-    fallbackLng: 'pt',
-    interpolation: {
-      escapeValue: false, // not needed for react as it escapes by default
+    debug: false,
+    fallbackLng: 'en',
+    supportedLngs: ['en', 'pt'],
+    interpolation: { escapeValue: false },
+    detection: {
+      order: ['localStorage', 'navigator'],
+      caches: ['localStorage'],
     },
     resources: {
       en: {
         translation: {
           description: {
-            //English translations
-            part1: 'Edit <1>src/App.js</1> and save to reload.',
-            footer:'2023. All rights reserved.',
-            menu1:'About',
-            menu2:'Projects',
-            menu3:'Contact',
-            aboutMe:'Hello, I am Pedro Henrique. Bachelor in Law. <br />Now I am pursuing a technical degree on <br>systems analysis and development. <br />I use HTML, CSS, JavaScript, React and TailwindCSS.',
-            techs:'Technologies: ',
-            about:'About me',
-            dedicated:'A dedicated and constantly learning developer',
-            mainAboutMe: 'Hello, I am Pedro Henrique Alves Lima, I am 23 years olds, a web developer with a law degree. <br /><br />Since mid-2023, I have dedicated myself daily for studying technologies <br /> such as HTML, CSS, JavaScript, React and TailwindCSS. <br /><br /> My foray into programming was motivated by curiosity and will to understand how the logic <br />behind a video-game works, and boosted by the will to create an emulator for a game, Teamfight Tactics. <br /> <br /> I seek for challenges and opportunities to apply my skills and contribute to projects. <br /> I also like basketball and video-games. ',
-            Botafogo1: "Re-design of Botafogo F.C's website",
-            Botafogo2: "This project involves the complete reconstruction of the Botafogo(A Brazilian soccer team) website, applying a new <br />design created by the team, which is composed by me and my friend, Bárbara Oliveira, a UX designer. <br /> We utilized the tool Figma for design, and the website is beeing implemented with HTML, JavaScript and TailwindCSS.",
-            Botafogo3: 'Live(unavailable)',
-            Botafogo4: "Technologies: JavaScript and TailwindCSS",
-            Bart1: 'In this project, the emphasis is on creating a website for an English course, <br />highlighting the landing page and subsequent pages.<br /> This website, developed with HTML, CSS and React.JS, presents a simple and straightforward experience.',
-            Bart2:'Live(unavailable)',
-            Bart3:"Technologies: ReactJS",
-            contact: "Get in touch with me!",
-            copy: "Click to copy",
-            copied: "Email copied!"
-          }
-        }
+            footer: '© 2026 Pedro Henrique Alves Lima. All rights reserved.',
+            menu0: 'Home',
+            menu1: 'About',
+            menu2: 'Projects',
+            menu3: 'Contact',
+
+            role: 'Full-Stack Developer',
+            tagline: 'Law graduate turned full-stack developer. Shipping production apps with React, Node, PHP and MySQL. Fully remote, based in Brazil.',
+            techs: 'Stack',
+
+            about: 'About me',
+            dedicated: 'A mid-level full-stack developer focused on shipping things that work.',
+            mainAboutMe: "I'm Pedro Henrique Alves Lima, a law graduate who switched into software in 2023 and never looked back. I now work as a mid-level full-stack developer with 2+ years of professional experience building production applications.\n\nMy daily stack is React, TypeScript, Node.js, PHP and MySQL. I started programming out of curiosity to understand how the logic behind a video game works, and that itch has only grown. I'm comfortable owning a feature end-to-end, from database schema to UI polish.\n\nI'm based in Brazil (UTC-3) and work fully remote. Outside of code: basketball, video games and chess.",
+
+            projectsTitle: 'Selected projects',
+            projectsSubtitle: 'Production work and technical challenges.',
+
+            chessmateTitle: 'ChessMate',
+            chessmateDesc: 'Live chess assistant that suggests the best move from any board position. Real-time chat between players, board state engine integration, and a clean React frontend. Built end-to-end and deployed to production.',
+            chessmateStack: 'React · TypeScript · Node.js · WebSockets',
+
+            ayumiTitle: 'Ayumi Dentista — Landing Page',
+            ayumiDesc: 'Conversion-focused landing page for a dental clinic, in production. Responsive layout, optimized for mobile-first traffic, deployed on Vercel.',
+            ayumiStack: 'React · TypeScript · Tailwind CSS',
+
+            SW: 'Star Wars API Challenge',
+            SW2: 'Front-end technical challenge for a developer position. Consumes the Star Wars REST API with filter, search and pagination, built to demonstrate component composition and async data handling.',
+            SW3: 'JavaScript · React · TailwindCSS',
+
+            liveLink: 'Live demo',
+            githubLink: 'View code',
+            unavailable: 'Code (private repo)',
+
+            contactTitle: 'Get in touch',
+            contactSubtitle: 'Open to remote full-stack roles. Best way to reach me is email.',
+            copy: 'Click to copy',
+            copied: 'Email copied!',
+          },
+        },
       },
       pt: {
         translation: {
           description: {
-            //Portuguese translations
-            part1: 'Edite <1>src/App.js</1> e salve para recarregar',
-            footer: '2023. Todos os direitos reservados.',
-            menu1:'Sobre',
-            menu2:'Projetos',
-            menu3:'Contato',
-            aboutMe:'Olá, sou o Pedro Henrique. Bacharel em direito. <br />cursando análise e desenvolvimento de sistemas. <br />Utilizo HTML, CSS, JavaScript, React e TailwindCSS.',
-            techs: 'Tecnologias: ',
-            about:'Sobre mim',
-            dedicated: 'Um desenvolvedor dedicado e em constante aprendizado',
-            mainAboutMe: 'Olá, sou Pedro Henrique Alves Lima, tenho 23 anos, um desenvolvedor web com formação em direito. <br /><br />Desde meados de 2023, dedico-me diariamente ao estudo de tecnologias <br />como HTML, CSS, JavaScript, React e TailwindCSS. <br /><br />Minha incursão na programação foi motivada pela curiosidade em entender como funcionava a lógica <br />por trás de um video-game e impulsionada pela vontade de criar um simulador para um jogo, o Teamfight Tactics. <br /><br />Busco desafios e oportunidades para aplicar minhas habilidades e contribuir para projetos.<br />Também gosto de basquete e video-games.',
-            Botafogo1: 'Re-design do Site do Botafogo F.C',
-            Botafogo2: "Este projeto envolve a reconstrução completa do site do Botafogo, aplicando um novo design criado <br />pela equipe composta por mim e minha amiga, Bárbara Oliveira, uma UX designer. <br />Utilizamos a ferramenta Figma para o design, e o site está sendo implementado com HTML, JavaScript e TailwindCSS.",
-            Botafogo3: 'Ao vivo(Indisponível)',
-            Botafogo4: "Tecnologias: JavaScript e TailwindCSS",
-            Bart1: 'Neste projeto, a ênfase está na criação de um site para <br />um curso de inglês, com destaque para a landing page e páginas subsequentes.<br />O site, desenvolvido com HTML, CSS e React.JS, apresenta uma experiência simples e direta.',
-            Bart2: 'Ao vivo(Indisponível)',
-            Bart3: "Tecnologias: ReactJS",
-            contact: "Entre em contato!",
-            copy: "Clique para copiar",
-            copied: "Email copiado!",
-          }
-        }
-      }
-    }
+            footer: '© 2026 Pedro Henrique Alves Lima. Todos os direitos reservados.',
+            menu0: 'Início',
+            menu1: 'Sobre',
+            menu2: 'Projetos',
+            menu3: 'Contato',
+
+            role: 'Desenvolvedor Full-Stack',
+            tagline: 'Bacharel em Direito que migrou pra desenvolvimento. Entregando aplicações em produção com React, Node, PHP e MySQL. 100% remoto, baseado no Brasil.',
+            techs: 'Stack',
+
+            about: 'Sobre mim',
+            dedicated: 'Desenvolvedor full-stack pleno, focado em entregar coisas que funcionam.',
+            mainAboutMe: 'Sou Pedro Henrique Alves Lima, bacharel em direito que migrou pra desenvolvimento em 2023 e nunca mais voltou. Hoje atuo como dev full-stack pleno com mais de 2 anos de experiência profissional construindo aplicações em produção.\n\nMeu dia a dia é React, TypeScript, Node.js, PHP e MySQL. Comecei a programar por curiosidade de entender a lógica por trás de um video-game, e a vontade só cresceu. Me sinto à vontade tocando uma feature de ponta a ponta, do schema do banco até o polimento da UI.\n\nMoro no Brasil (UTC-3) e trabalho 100% remoto. Fora do código: basquete, video-games e xadrez.',
+
+            projectsTitle: 'Projetos selecionados',
+            projectsSubtitle: 'Trabalhos em produção e desafios técnicos.',
+
+            chessmateTitle: 'ChessMate',
+            chessmateDesc: 'Assistente de xadrez em produção que sugere o melhor lance a partir de qualquer posição do tabuleiro. Chat em tempo real entre jogadores, integração com engine de avaliação e frontend React limpo. Construído de ponta a ponta.',
+            chessmateStack: 'React · TypeScript · Node.js · WebSockets',
+
+            ayumiTitle: 'Ayumi Dentista — Landing Page',
+            ayumiDesc: 'Landing page focada em conversão pra uma clínica odontológica, em produção. Layout responsivo, otimizado pra tráfego mobile-first, deploy na Vercel.',
+            ayumiStack: 'React · TypeScript · Tailwind CSS',
+
+            SW: 'Desafio Star Wars API',
+            SW2: 'Desafio técnico front-end pra vaga de desenvolvedor. Consome a Star Wars REST API com filtro, busca e paginação, feito pra demonstrar composição de componentes e manipulação assíncrona.',
+            SW3: 'JavaScript · React · TailwindCSS',
+
+            liveLink: 'Ver ao vivo',
+            githubLink: 'Ver código',
+            unavailable: 'Código (repo privado)',
+
+            contactTitle: 'Entre em contato',
+            contactSubtitle: 'Aberto a vagas full-stack remotas. Melhor forma de falar comigo é por email.',
+            copy: 'Clique para copiar',
+            copied: 'Email copiado!',
+          },
+        },
+      },
+    },
   });
 
 export default i18n;

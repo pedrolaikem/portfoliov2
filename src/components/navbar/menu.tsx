@@ -9,7 +9,8 @@ import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
 const flagUrl = findFlagUrlByNationality("Brazilian");
 const flagUrl2 = findFlagUrlByNationality("American");
 
-const lngs = {
+type Lng = { nativeName: string; img: string };
+const lngs: Record<string, Lng> = {
     pt: { nativeName: 'Português', img: `${flagUrl}` },
     en: { nativeName: 'English', img: `${flagUrl2}` },
 };
@@ -54,7 +55,7 @@ function Menu() {
                             variant="outlined"
                             indicator={<KeyboardArrowDown sx={{color: 'black'}} />}
                             sx={{ bgcolor: 'white', mr: 2, minWidth: '200px' }}
-                            defaultValue={'pt'}
+                            defaultValue={i18n.language?.startsWith('pt') ? 'pt' : 'en'}
                             renderValue={renderValue}
                         >
                             {Object.keys(lngs).map((lng) => (
@@ -64,8 +65,8 @@ function Menu() {
                                 </Option>
                             ))}
                         </Select>
-                        <Button variant="plain" component="a" href="/" sx={{ color: 'white', mx: 1, '&:hover': { bgcolor: 'white', color: 'black' } }}>
-                            Home
+                        <Button variant="plain" component="a" href="#home" sx={{ color: 'white', mx: 1, '&:hover': { bgcolor: 'white', color: 'black' } }}>
+                            <Trans i18nKey="description.menu0">Home</Trans>
                         </Button>
                         <Button component="a" variant="plain" href="#sobre" sx={{ color: 'white', mx: 1, '&:hover': { bgcolor: 'white', color: 'black' } }}>
                             <Trans i18nKey="description.menu1">Sobre</Trans>
@@ -102,8 +103,8 @@ function Menu() {
                                 zIndex: 999,
                             }}
                         >
-                            <Button component="a" variant="plain" href="/" sx={{ display: 'block', py: 2, color: 'white', textDecoration: 'none' }}>
-                                Home
+                            <Button component="a" variant="plain" href="#home" sx={{ display: 'block', py: 2, color: 'white', textDecoration: 'none' }}>
+                                <Trans i18nKey="description.menu0">Home</Trans>
                             </Button>
                             <Button component="a" variant="plain" href="#sobre" sx={{ display: 'block', py: 2, color: 'white', textDecoration: 'none' }}>
                                 <Trans i18nKey="description.menu1">Sobre</Trans>
